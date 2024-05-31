@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+
+    <style>
+        
+        .tagline{
+             font-style: italic;
+        }
+        h2{
+            color: rgb(27, 27, 32);
+            font-size: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-decoration: underline;
+
+        }
+        #header{
+            background-color: rgb(212, 212, 211);
+            border: solid black;
+            box-sizing: border-box ;
+            
+            border-radius: 30px;
+        }
+        .hello{
+
+            color: rgb(47, 63, 63);
+            font-weight: 400;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        <!--qrsize-->
+        #size{
+            align-items: center;
+            height: 30px;
+            width: 80px;
+            text-align: center;
+            
+
+        }
+        #img{
+            height: 200px;
+        }
+            
+        .textarea{
+            
+            justify-content:center ;
+            align-items: center;
+            border-radius: 10px;
+            width: 200px;
+            
+        }
+        .button{
+            height: 60px;
+            width: 100px;
+            border: solid black;
+            border-radius: 20px;
+            background-color: rgb(230, 230, 227);
+            font-size: 19px;
+            
+        }
+        
+
+        #allele{
+           
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .grid{
+            background-color: rgba(189, 188, 188, 0.382);
+        }
+        
+    </style>
+</head>
+
+
+<body>
+    <script type="text/javascript">
+        function createqr(){
+            var api="https://chart.googleapis.com/chart?cht=qr&chs=";
+            var myimg=document.getElementById("img");
+            var mytext=document.getElementById("linktbg").value
+            var mysize=document.getElementById("size").value
+
+            if(mytext!=="" && mysize=="250"){
+                myimg.src=api+"250x250"+"&chl="+mytext;
+            }
+
+            else{
+                alert("Kindly enter the link/text and select size")
+            }
+
+        }
+    </script>
+    
+    <div class="grid">
+        <section id="header"><h2 align="center" class="tagline">Qr Code Generator</h2>
+            <p align="center" class="hello">Hello there, this page will convert your text/link into Qr code</p></section>
+        <br><br><br>
+        <center>
+            <img src="PICQR.png" id="img" ><br><br>
+        </center><br><br>
+
+        <section id="allele">
+
+        <select align="centre" id="size" >
+           
+            <option value="250" >250x250</option>
+            <option value="3" selected>size</option>
+        </select>
+        <br><br>
+        <textarea placeholder="Enter Your Link" class="textarea" id="linktbg"></textarea><br><br>
+        <input type="submit" class="button" value="Generate" onclick="createqr()"><br><br>
+        
+    </div>
+    </section>
+    <P align="center" class="lastline">Credits @ sameer</P>
+</body>
+</html>
